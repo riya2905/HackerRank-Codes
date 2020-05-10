@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int solveMeFirst(int a, int b) {
+    // Hint: Type return a+b; below
+ return (a+b);
+}
+
+int main() {
+   int a,b;
+    scanf("%d",&a);
+    scanf("%d",&b);
+    printf("%d",solveMeFirst(a,b));
+    return 0;
+}

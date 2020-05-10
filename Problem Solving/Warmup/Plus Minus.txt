@@ -1,0 +1,25 @@
+#include<stdio.h>
+int main()
+{
+    float v,num,a=0,b=0,c=0;
+    float p,n,z;
+    scanf("%f",&num);
+    for(int i=0;i<num;i++)
+    {
+        scanf("%f",&v);
+        if(v>0)
+            a++;
+        else
+            if(v<0)
+                b++;
+            else
+                c++;    
+    }
+    p=a/num;
+    n=b/num;
+    z=c/num;
+    printf("%f\n",p);
+    printf("%f\n",n);
+    printf("%f\n",z);
+    return 0;
+}
