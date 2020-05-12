@@ -1,0 +1,40 @@
+#include<stdio.h>
+main()
+{
+    int i,n, a[70],x,d,temp;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+
+    for(i=0;i<n;i++)
+    {
+        if(a[i]<38)
+            printf("%d\n",a[i]);
+        else
+        {
+            x=a[i]%10;
+            temp=a[i];
+            if(x<5)
+            {
+                d=5-x;
+                temp=temp+d;
+                if(temp-a[i]<3)
+                    printf("%d\n",temp);
+                else
+                    printf("%d\n",a[i]);
+            }
+            if(x>5)
+            {
+                d=10-x;
+                temp=temp+d;
+                if(temp-a[i]<3)
+                    printf("%d\n",temp);
+                else
+                    printf("%d\n",a[i]);
+            }
+            if(x==5)
+                printf("%d\n",a[i]);
+            
+        }
+    }
+}
