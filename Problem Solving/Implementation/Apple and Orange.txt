@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+    int i, s, t , a , b , m , n ,apple[100000], orange[100000],x=0,y=0;
+    scanf("%d %d",&s,&t);
+    scanf("%d %d",&a ,&b);
+    scanf("%d %d", &m,&n);
+    for(i=0;i<m;i++)
+        scanf("%d",&apple[i]);
+    for(i=0;i<n;i++)
+        scanf("%d",&orange[i]);
+    for(i=0;i<m;i++)
+    {
+        apple[i]=apple[i]+a;
+        if(apple[i]>=s && apple[i]<=t)
+            x++;
+    }
+    for(i=0;i<n;i++)
+    {
+        orange[i]=orange[i]+b;
+        if(orange[i]>=s && orange[i]<=t)
+            y++;
+    }
+    printf("%d\n%d",x,y);
+
+}
