@@ -1,0 +1,14 @@
+h=0
+ph=0
+n=0
+a=int(input())
+s=input()
+for x in s:
+    if x=='U':
+        h=h+1
+    if x=='D':
+        h=h-1
+    if h==0 and ph<0:
+        n=n+1
+    ph=h
+print(n)
