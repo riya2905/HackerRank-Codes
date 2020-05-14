@@ -1,0 +1,10 @@
+n=int(input())
+x=input()
+l=x.split()
+from collections import *
+d=Counter(l)
+c=0
+for keys in d:
+    p=d[keys]//2
+    c=c+p
+print(c)
