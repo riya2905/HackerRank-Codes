@@ -1,0 +1,46 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the dayOfProgrammer function below.
+def dayOfProgrammer(year):
+    days=[31,28,31,30,31,30,31,31,30,31,30,31]
+    if year<=1917:
+        if year%4==0:
+            days[1]=29
+    elif year>1918:
+        if year%4==0 and year%100!=0:
+            days[1]=29
+        elif year%400==0:
+            days[1]=29
+    if year==1918:
+        return '26.09.1918'
+    s=256
+    sum=0
+    print(days)
+    for i in range(len(days)):
+        if sum<s:
+            sum+=days[i]
+        else:
+            break
+    print(sum)
+    x=s-(sum-days[i-1])
+    print(x)
+    ans=str(x)+'.'+'0'+str(i)+'.'+str(year)
+    return ans
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    year = int(input().strip())
+
+    result = dayOfProgrammer(year)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
