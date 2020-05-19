@@ -1,0 +1,42 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the biggerIsGreater function below.
+def biggerIsGreater(w):
+    w=list(w)
+    k=-1
+    l=-1
+    for i in range(len(w)-1):
+        if w[i]<w[i+1]:
+            k=i
+    if k==-1:
+        return 'no answer'
+    for i in range(k+1,len(w)):
+        if w[k]<w[i]:
+            l=i
+    print(w[k],w[l])
+    w[k],w[l]=w[l],w[k]
+    z=w[k+1:]
+    ans=w[:k+1]+z[::-1]
+    print(w[:k+1],z[::-1])
+    return ''.join(ans)
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    T = int(input())
+
+    for T_itr in range(T):
+        w = input()
+
+        result = biggerIsGreater(w)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
