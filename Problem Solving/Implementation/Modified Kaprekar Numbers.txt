@@ -1,0 +1,18 @@
+def kaprekarNumbers(p, q):
+    new=[]
+    for k in range(p,q+1):
+        num = str(k**2)
+        d = len(str(k))        #number of digits
+        r = num[-d:]
+        l = num[:-d]
+        if not l:
+            l='0'
+        if int(r)+int(l) == k:
+            new.append(k)
+    if new:
+        return ' '.join([str(k) for k in new])
+    else:
+        return "INVALID RANGE"
+p=int(input())
+q=int(input())
+print(kaprekarNumbers(p,q))
