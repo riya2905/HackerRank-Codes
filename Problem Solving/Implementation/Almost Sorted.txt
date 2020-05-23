@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the almostSorted function below.
+def almostSorted(arr):
+    x=arr.copy()
+    x.sort()
+    if arr==x:
+        print('yes')
+        return
+    l=[]
+    for i in range(len(arr)):
+        if arr[i]!=x[i]:
+            l.append(i)
+    if len(l)==2:
+        arr[l[0]],arr[l[1]]=arr[l[1]],arr[l[0]]
+        if arr==x:
+            print('yes')
+            print('swap',l[0]+1,l[1]+1)
+        else:
+            print('no')
+    else:
+        k=arr[l[0]:l[-1]+1]
+        z=arr[:l[0]]+k[::-1]+arr[l[-1]+1:]
+        #print(k,z)
+        if z==x:
+            print('yes')
+            print('reverse',l[0]+1,l[-1]+1)
+        else:
+            print('no')
+
+
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    almostSorted(arr)
