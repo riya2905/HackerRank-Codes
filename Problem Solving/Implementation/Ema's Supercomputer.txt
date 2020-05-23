@@ -1,0 +1,73 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the twoPluses function below.
+def twoPluses(grid):
+    n=len(grid)
+    m=len(grid[0])
+    #print(grid)
+    ans=1
+
+    l=[]
+    for i in grid:
+        l.append(list(i))
+    print(l)
+    for i in range(0,n):
+        for j in range(0,m):
+            if(l[i][j]=='G'):
+                l[i][j]='B'
+                x=1
+                a=1
+                while(i-x>=0 and i+x<n and j-x>=0 and j+x<m and l[i-x][j]=='G' and l[i+x][j]=='G' and l[i][j-x]=='G' and l[i][j+x]=='G'):
+                    l[i+x][j]='B'
+                    l[i-x][j]='B'
+                    l[i][j+x]='B'
+                    l[i][j-x]='B'
+                    x=x+1
+                    a=a+4
+                    print(i,j," : x:",x,"  a:",a)
+                    for p in range(0,n):
+                        for q in range(0,m):
+                            if(l[p][q]=='G'):
+                                y=1
+                                b=1
+                                while(p-y>=0 and p+y<n and q-y>=0 and q+y<m and l[p-y][q]=='G' and l[p+y][q]=='G' and l[p][q-y]=='G' and l[p][q+y]=='G'):
+                                    y=y+1
+                                    b=b+4
+                                ans=max(ans,a*b)
+                            print(p,q,":ans: ",ans)
+                l=[]
+                for z in grid:
+                    l.append(list(z))
+    
+    return ans
+                                
+
+                
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    nm = input().split()
+
+    n = int(nm[0])
+
+    m = int(nm[1])
+
+    grid = []
+
+    for _ in range(n):
+        grid_item = input()
+        grid.append(grid_item)
+
+    result = twoPluses(grid)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
