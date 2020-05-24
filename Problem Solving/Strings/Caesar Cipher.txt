@@ -1,0 +1,39 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+#z=122 Z=90 a=97 A=65
+# Complete the caesarCipher function below.
+def caesarCipher(s, k):
+    e=''
+    for i in s:
+        if i.isalpha():
+            x=ord(i)
+            for j in range(1,k+1):
+                x=x+1
+                if x==123:
+                    x=97
+                elif x==91:
+                    x=65
+            e=e+chr(x)
+            print(e)
+        else:
+            e=e+i
+    return e
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input())
+
+    s = input()
+
+    k = int(input())
+
+    result = caesarCipher(s, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
