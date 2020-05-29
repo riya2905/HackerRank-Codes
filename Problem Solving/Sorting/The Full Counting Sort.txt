@@ -1,0 +1,44 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the countSort function below.
+def countSort(arr):
+    
+    #print(arr)
+    d={}
+    n=len(arr)
+    for i in range(n):
+        x=arr[i]
+        if int(x[0]) not in d:
+            if i<n//2:
+                d[int(x[0])]=['-']
+            else:
+                d[int(x[0])]=[x[1]]
+        else:
+            z=d[int(x[0])]
+            if i<n//2:
+                z.append('-')
+                d[int(x[0])]=z
+            else:
+                z.append(x[1])
+                d[int(x[0])]=z
+    #print(d)
+    for i in sorted(d.keys()):
+        print(' '.join(d[i]),end=' ')
+
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(input().rstrip().split())
+
+    countSort(arr)
