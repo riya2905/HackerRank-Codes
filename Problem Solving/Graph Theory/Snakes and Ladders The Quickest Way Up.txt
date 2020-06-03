@@ -1,0 +1,65 @@
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the quickestWayUp function below.
+def quickestWayUp(ladders, snakes):
+    d={}
+    for i in ladders:
+        d[i[0]]=i[1]
+    for i in snakes:
+        d[i[0]]=i[1]
+    #print(d)
+    c=0
+    q=[[1,c]]
+    v=[0]*101
+    v[1]=1
+    while(len(q)!=0):
+        x,c=q.pop(0)
+        for i in range(x+1,x+7):
+            if(v[i]==0):
+                try:
+                    y=d[i]
+                    q.append([y,c+1])
+                    v[y]=1
+                    if(y==100):
+                        return c+1
+                except:
+                    q.append([i,c+1])
+                    if(i==100):
+                        return c+1
+                v[i]=1
+        #print(q)
+    #print("-----------------------------------------")
+    return -1
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input())
+
+    for t_itr in range(t):
+        n = int(input())
+
+        ladders = []
+
+        for _ in range(n):
+            ladders.append(list(map(int, input().rstrip().split())))
+
+        m = int(input())
+
+        snakes = []
+
+        for _ in range(m):
+            snakes.append(list(map(int, input().rstrip().split())))
+
+        result = quickestWayUp(ladders, snakes)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
