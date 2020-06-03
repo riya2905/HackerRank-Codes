@@ -1,0 +1,40 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from itertools import combinations
+# Complete the maximumPerimeterTriangle function below.
+def maximumPerimeterTriangle(sticks):
+    sticks.sort()
+    x=list(combinations(sticks,3))
+    #print(list(x))
+    l=[]
+    for i in x:
+        if (i[0]+i[1])>i[2]:
+            l.append(i)
+    #print(l)
+    peri=0
+    side=0
+    #l.sort()
+    if len(l)==0:
+        side=[-1]
+        return side
+    for i in l:
+        if sum(i)>=peri:
+            side=i
+            peri=sum(i)
+    
+    return side
+
+
+n = int(input())
+
+sticks = list(map(int, input().rstrip().split()))
+
+ans=maximumPerimeterTriangle(sticks)
+
+for i in ans:
+    print(i,end=' ')
