@@ -1,0 +1,33 @@
+n,k=map(int,input().split())
+ar=[int(x) for x in input().split()]
+m=0
+p=0
+c=0
+while(m<len(ar)):
+    f=0
+    for i in range(m,m+k):
+        if i>=len(ar):
+            break
+        if ar[i]==1:
+            f=1
+            p=i
+    #print(p)
+    if f==1:
+        m=p+k
+        #print(m)
+    else:
+        if m!=0:
+            for j in range(m-k+1,m):
+                if ar[j]==1:
+                    p=j
+                    f=1
+            if f==1:
+                m=p+k
+    if f==0:
+        break
+    c=c+1
+#print(m)
+if m<len(ar):
+    print(-1)
+else:
+    print(c)
