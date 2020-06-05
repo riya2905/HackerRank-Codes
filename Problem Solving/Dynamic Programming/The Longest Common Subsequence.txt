@@ -1,0 +1,39 @@
+x=input().split()
+n=int(x[0])
+m=int(x[1])
+s1=input().split()
+s1=list(map(lambda i:int(i), s1))
+s2=input().split()
+s2=list(map(lambda i:int(i), s2))
+c=[[0]*(m+1) for _ in range(n+1)]
+b=[[0]*(m+1) for _ in range(n+1)]
+for i in range(1,n+1):
+    for j in range(1,m+1):
+        if s1[i-1]==s2[j-1]:
+            c[i][j]=c[i-1][j-1]+1
+            b[i][j]='D'
+        else:
+            if c[i-1][j]>=c[i][j-1]:
+                c[i][j]=c[i-1][j]
+                b[i][j]='T'
+            else:
+                c[i][j]=c[i][j-1]
+                b[i][j]='L'
+
+l=[]
+def Print_lcs(b,s1,i,j):
+    while i>0 and j>0:
+        if b[i][j]=='D':
+            l.append(s1[i-1])
+            i=i-1
+            j=j-1
+        elif b[i][j]=='T':
+            i=i-1
+        else:
+            j=j-1
+    return l
+
+y=Print_lcs(b,s1,n,m)
+y.reverse()
+for i in y:
+    print(i,end=' ')
