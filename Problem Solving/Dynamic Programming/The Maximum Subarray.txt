@@ -1,0 +1,23 @@
+t=int(input())
+while t:
+    n=int(input())
+    a=input().split()
+    a=list(map(lambda i:int(i), a))
+    s2=0
+    s1=a[0]
+    c=a[0]
+    for i in range(1,len(a)):
+        c=max(c+a[i],a[i])
+        if c>=s1:
+            s1=c
+    print(s1,end=' ')
+    flag=1
+    for i in a:
+        if i>=0:
+            s2+=i
+            flag=0
+    if flag==0:
+        print(s2)
+    else:
+        print(max(a))
+    t-=1
