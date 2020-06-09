@@ -1,0 +1,13 @@
+t=int(input())
+stack=[0]
+while t:
+    query=input().split()
+    if len(query)==1:
+        if query[0]=='2':
+            stack.pop()
+        else:
+            print(stack[-1])
+    else:
+        stack.append(max(int(query[1]),stack[-1]))
+    t-=1
+
