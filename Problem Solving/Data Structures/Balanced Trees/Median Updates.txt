@@ -1,0 +1,43 @@
+#!/bin/python
+import bisect
+def med(k):
+    if len(k)==0:
+        return 'Wrong!'    
+    elif len(k)==1:
+        return k[0]
+    elif len(k)%2==0:
+        x=(k[len(k)//2]+k[(len(k)//2)-1])/2
+    else:
+        x=k[len(k)//2]
+    if int(x)==float(x):
+        return int(x)
+    else:
+        return x
+def median(a,x):
+    l=[]
+    for i in range(len(a)):
+        if a[i]=='r':
+            if len(l)==0:
+                print('Wrong!')
+            else:
+                try:
+                    l.remove(x[i])
+                    print(med(l))
+                except:
+                    print('Wrong!')
+        else:
+            bisect.insort(l,x[i])
+            print(med(l))
+
+    
+
+N = int(input())
+s = []
+x = []
+for i in range(0, N):
+   tmp = input().strip().split(' ')
+   a, b = [xx for xx in tmp]
+   s.append(a)
+   x.append(int(b))
+median(s,x)
+# Enter your code here. Read input from STDIN. Print output to STDOUT
