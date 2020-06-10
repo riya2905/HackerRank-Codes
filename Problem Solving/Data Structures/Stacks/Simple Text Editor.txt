@@ -1,0 +1,24 @@
+t=int(input())
+stack=[]
+s=''
+while t:
+    query=input().split()
+    if len(query)==2:
+        if query[0]=='1':
+            stack.append(s)
+            s+=query[1]
+            #print(s)
+        elif query[0]=='2':
+            stack.append(s)
+            k=int(query[1])
+            s=s[:len(s)-k]
+            #print(s)
+        else:
+            k=int(query[1])
+            print(s[k-1])
+    else:
+        #print(stack)
+        s=stack.pop()
+        #print(s)
+    t-=1
+
