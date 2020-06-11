@@ -1,0 +1,19 @@
+import bisect
+def median(l):
+    n=len(l)
+    if n%2!=0:
+        mid=n//2
+        result=l[mid]
+    else:
+        odd=n//2-1
+        even=n//2
+        result=(l[odd]+l[even])/2
+    return float(result)
+
+t=int(input())
+l=[]
+while t:
+    a=int(input())
+    bisect.insort(l,a)
+    print(median(l))
+    t-=1
