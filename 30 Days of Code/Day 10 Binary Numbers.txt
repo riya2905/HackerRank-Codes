@@ -1,0 +1,22 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+from itertools import groupby
+
+
+if __name__ == '__main__':
+    n = int(input())
+    x=bin(n)
+    a=0
+    x=str(x)
+    x=x[2:]
+    #print(x)
+    for key,value in groupby(str(x)):
+        if key=='1':
+            a=max(a,len(list(value)))
+    print(a)
+
