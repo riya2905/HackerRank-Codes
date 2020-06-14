@@ -1,0 +1,15 @@
+n=int(input())
+phone={}
+while n:
+    x=input().split()
+    phone[x[0]]=x[1]
+    n-=1
+while True:
+    try:
+        x=input()
+        if x in phone:
+            print(x+'='+phone[x])
+        else:
+            print('Not found')
+    except:
+        break
