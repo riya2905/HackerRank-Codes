@@ -1,0 +1,13 @@
+if __name__ == '__main__':
+    n = int(raw_input())
+    arr =list(map(int, raw_input().split()))
+m=max(arr)
+lst=[]
+arr.sort(reverse=True)
+for i in arr:
+    if i==m:
+        continue
+    lst.append(i)
+print(lst[0])
+
+
