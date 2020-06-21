@@ -1,0 +1,4 @@
+n=int(input())
+s=map(int,input().split())
+s=tuple(s)
+print(int(hash(s)))
