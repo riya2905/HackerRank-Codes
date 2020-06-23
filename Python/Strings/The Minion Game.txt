@@ -1,0 +1,16 @@
+def minion_game(string):
+    vowels='AEIOU'
+    ks=0
+    ss=0
+    for i in range(len(string)):
+        if string[i] in vowels:
+            ks=ks+len(string)-i
+        else:
+            ss=ss+len(string)-i
+    if ks>ss:
+        print("Kevin",ks)
+    elif ss>ks:
+        print("Stuart",ss)
+    else:
+        print('Draw')
+
