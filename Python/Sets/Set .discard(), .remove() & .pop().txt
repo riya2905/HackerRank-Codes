@@ -1,0 +1,14 @@
+n = int(input())
+s = set(map(int, input().split()))
+test=int(input())
+while test:
+    query=input().split()
+    if query[0]=='pop':
+        s.pop()
+    elif query[0]=='remove':
+        s.remove(int(query[1]))
+    else:
+        s.discard(int(query[1]))
+    test-=1
+print(sum(s))
+
