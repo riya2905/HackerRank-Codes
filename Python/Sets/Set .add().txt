@@ -1,0 +1,6 @@
+n=int(input())
+s=set()
+while n:
+    s.add(input())
+    n-=1
+print(len(s))
