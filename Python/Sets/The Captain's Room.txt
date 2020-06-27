@@ -1,0 +1,8 @@
+from collections import Counter
+k=int(input())
+rooms=list(map(int,input().split()))
+x=Counter(rooms)
+for key in x:
+    if x[key]!=k:
+        print(key)
+        break
