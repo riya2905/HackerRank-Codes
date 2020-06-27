@@ -1,0 +1,16 @@
+n=int(input())
+a=set(map(int,input().split()))
+t=int(input())
+while t:
+    q=input().split()
+    b=set(map(int,input().split()))
+    if q[0]=='intersection_update':
+        a.intersection_update(b)
+    elif q[0]=='update':
+        a.update(b)
+    elif q[0]=='symmetric_difference_update':
+        a.symmetric_difference_update(b)
+    elif q[0]=='difference_update':
+        a.difference_update(b)
+    t-=1
+print(sum(a))
