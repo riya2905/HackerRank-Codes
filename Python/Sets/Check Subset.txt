@@ -1,0 +1,16 @@
+t=int(input())
+while t:
+    n=int(input())
+    a=set(map(int,input().split()))
+    m=int(input())  
+    b=set(map(int,input().split()))
+    flag=1
+    for i in a:
+        if i not in b:
+            flag=0
+            print('False')
+            break
+    if flag==1:
+        print('True')
+    t-=1
+
