@@ -1,0 +1,11 @@
+from itertools import permutations
+
+x=input().split()
+str=x[0]
+str=list(str)
+str.sort()
+''.join(str)
+k=int(x[1])
+p=list(permutations(str,k))
+for i in p:
+    print(''.join(i))
