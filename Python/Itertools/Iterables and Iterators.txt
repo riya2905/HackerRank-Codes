@@ -1,0 +1,13 @@
+from itertools import combinations
+n=int(input())
+array=input().split()
+k=int(input())
+comb=list(combinations(array,k))
+count=0
+#print(comb)
+for i in comb:
+    if 'a' in i:
+        count+=1
+print(count/len(comb))
+
+
