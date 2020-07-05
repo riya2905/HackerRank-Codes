@@ -1,0 +1,16 @@
+from collections import OrderedDict
+purch={}
+purch=OrderedDict()
+n=int(input())
+for _ in range(n):
+    x=input().split()
+    item=x[0:len(x)-1]
+    item=' '.join(item)
+    price=x[-1]
+    if item in purch:
+        purch[item]+=int(price)
+    else:
+        purch[item]=int(price)
+    #print(purch)
+for i in purch.keys():
+    print(i,purch[i])
