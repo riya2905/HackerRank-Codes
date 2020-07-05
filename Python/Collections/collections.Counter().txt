@@ -1,0 +1,14 @@
+from collections import Counter
+x=int(input())
+s=list(map(int,input().split()))
+n=int(input())
+size=Counter(s)
+amt=0
+while n:
+    a=list(map(int,input().split()))
+    i=size[a[0]]
+    if i>0:
+        size[a[0]]-=1
+        amt=amt+a[1]
+    n-=1
+print(amt)
