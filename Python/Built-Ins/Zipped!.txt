@@ -1,0 +1,13 @@
+a=input().split()
+n=int(a[0])
+x=int(a[1])
+marks=[]
+for _ in range(x):
+    a=list(map(float,input().split()))
+    marks.append(a)
+r=list(zip(*marks))
+for i in r:
+    avg=sum(i)/len(i)
+    print(avg)
+
+#print(r)
