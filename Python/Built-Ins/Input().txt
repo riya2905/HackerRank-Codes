@@ -1,0 +1,8 @@
+a=(input().split())
+x=int(a[0])
+k=int(a[1])
+ans=eval(input())
+if ans==k:
+    print('True')
+else:
+    print('False')
