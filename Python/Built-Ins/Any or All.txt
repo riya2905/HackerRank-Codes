@@ -1,0 +1,8 @@
+n=int(input())
+arr=input().split()
+x=all([int(i)>0 for i in arr])
+y=any([i==i[::-1] for i in arr])
+if x==True and y==True:
+    print('True')
+else:
+    print('False')
